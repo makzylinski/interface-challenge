@@ -15,22 +15,26 @@ public class Player implements ISaveable {
 
     @Override
     public List<String> wirte() {
-        List<String> list = List.of(name, weapon, Integer.toString(hitPoints), Integer.toString(strength));
-        return null;
+        return List.of(name, Integer.toString(hitPoints), Integer.toString(strength), weapon);
     }
 
     @Override
     public void read(List<String> list) {
-
+        if(list != null && list.size() > 0) {
+            list.add(name);
+            list.add(Integer.toString(hitPoints));
+            list.add(Integer.toString(strength));
+            list.add(weapon);
+        }
     }
 
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", weapon='" + weapon + '\'' +
                 ", hitPoints=" + hitPoints +
                 ", strength=" + strength +
+                ", weapon='" + weapon + '\'' +
                 '}';
     }
 }
